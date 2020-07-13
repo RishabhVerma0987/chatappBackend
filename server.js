@@ -43,6 +43,7 @@ io.on("connection", (socket) => {
   socket.on("joinRoom", ({ username, roomname }) => {
     //* create user
     const user = userJoin(socket.id, username, roomname);
+    console.log(socket.id, "=id");
     socket.join(user.room);
 
     //* emit message to user to welcome him/her
