@@ -31,15 +31,3 @@ process.on("unhandledRejection", (err, promisee) => {
   console.log(`Error : ${err.message}`.red.bold);
   server.close(() => process.exit(1));
 });
-
-// Socket setup & pass server
-var io = socket(server);
-io.on("connection", (socket) => {
-  console.log("made socket connection".green.bold, socket.id);
-
-  // Handle chat event
-  socket.on("chat", function (data) {
-    console.log(data);
-    io.sockets.emit("chat", data);
-  });
-});
