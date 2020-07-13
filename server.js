@@ -82,7 +82,7 @@ io.on("connection", (socket) => {
       io.to(user.room).emit("message", {
         userId: user.id,
         username: user.username,
-        text: `${user.usernam} has left the chat`,
+        text: `${user.username} has left the chat`,
       });
     }
   });
